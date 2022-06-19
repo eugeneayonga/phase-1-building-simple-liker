@@ -2,10 +2,28 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
+const heartLike = document.querySelector('.like-glyph');
 
+function heartLikeCallback(event) {
+  const heart = event.target;
+  
+  mimicServerCall()
+  .then(function(serverMessage) {
+    alert("You liked!");
+    alert(serverMessage)
+  })
+  .catch(function(error) {
+    alert(error);
+    heart.innerText = FULL_HEART[heart.innerText];
+    heart.innerText = EMPTY_HEART[heart.innerText];
+    FULL_HEART(heart.innerText);
+    heart.classList.contains(activated-heart) ? heart.classList.remove('activated-heart') : heart.classList.add('activated-heart');
+  });
+}
 
-
+for (let heart of document.querySelectorAll('.like-glyph')) {
+  heart.addEventListener('click', heartLikeCallback);
+}
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
